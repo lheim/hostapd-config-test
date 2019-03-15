@@ -22,7 +22,7 @@ if [ -z "$1" ]; then DIR=$PWD/logs/$(date +%Y_%m_%d_%H_%M_%S); else DIR=$PWD/log
 mkdir $DIR
 
 # save upcoming hostapd.conf
-cp hostapd.conf logs/$1/
+cp hostapd.conf $DIR/
 diff -u hostapd.conf hostapd-sample.conf > $DIR/hostapd-diff.log
 
 echo "Stopping hostapd via systemctl."
