@@ -17,12 +17,13 @@ fi
 
 CLIENT=10.10.10.16
 
-DIR=$PWD/logs/$1
-mkdir logs/$1
+if [ -z "$1" ]; then DIR=$PWD/logs/$(date +%Y_%m_%d_%H_%M_%S); else DIR=$PWD/logs/$1; fi
+
+mkdir $DIR
 
 # save upcoming hostapd.conf
 cp hostapd.conf logs/$1/
-diff -u hostapd.conf hostapd-sample.conf > $DIR/diff.txt
+diff -u hostapd.conf hostapd-sample.conf > $DIR/hostapd-diff.log
 
 echo "Stopping hostapd via systemctl."
 systemctl stop hostapd
