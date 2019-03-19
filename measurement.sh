@@ -92,7 +92,7 @@ sudo chown -R pi:pi $DIR
 
 
 echo "Plotting iperf3 measurements."
-/bin/su -c "python3 ~/measurement-script/plot-iperf.py $DIR" - pi
+/bin/su -c "python3 ~/hostapd-config-test/plot-iperf.py $DIR" - pi
 
 
 
