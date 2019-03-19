@@ -23,7 +23,7 @@ mkdir $DIR
 
 # save upcoming hostapd.conf
 cp hostapd.conf $DIR/
-diff -u hostapd.conf hostapd-sample.conf > $DIR/hostapd-diff.log
+diff -u hostapd-sample.conf hostapd.conf > $DIR/hostapd-diff.log
 
 echo "Stopping hostapd via systemctl."
 systemctl stop hostapd
