@@ -73,7 +73,7 @@ def iperf_plot(log_name, logs_iperf):
                        bbox={'facecolor':'grey', 'alpha':0.3, 'pad':10})
 
 
-        ax[index].set_ylim(0, 120)
+        ax[index].set_ylim(0, 130)
         title = log_name + ' ' + protocol
         if reverse ==1:
             title += ' reverse (Client -> AP)'
