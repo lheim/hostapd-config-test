@@ -32,6 +32,10 @@ sleep 2
 echo "Starting hostapd daemon."
 hostapd -d -t -B -P hostapd.pid -f $DIR/hostapd.log hostapd.conf
 
+if [ ! -f "hostapd.pid" ]; then
+    echo "❌ Hostapd daemon failed - check 'hostapd.config' and the log for errors."
+    exit -1
+fi
 
 echo "Waiting 15 seconds for clients to connect ..."
 sleep 15
