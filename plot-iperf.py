@@ -67,7 +67,7 @@ def iperf_plot(log_name, logs_iperf):
         fig[index], (ax[index]) = plt.subplots(1, 1, sharex=True)
         fig[index].suptitle('iperf3 Throughput', fontsize=12, fontweight='bold')
 
-        ypos = 95 if data_rates_mean[0] < 50 else 25
+        ypos = 125 if data_rates_mean[0] < 50 else 25
         ax[index].text(0, ypos, measurement_information, fontname = 'monospace',
                        horizontalalignment='left', verticalalignment='top',
                        bbox={'facecolor':'grey', 'alpha':0.3, 'pad':10})
