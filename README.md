@@ -1,6 +1,8 @@
 # hostapd-config-test
 Script to test different hostapd configs and their performance.
 
+See `notes.md` for RB Pi 3B+ related notes.
+
 ## `measurement.sh`
 Main script which starts a hostapd daemon, waits for a client, runs multiple iperf3 measurements and then plots them.
 
