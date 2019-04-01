@@ -11,7 +11,9 @@ ssh-copy-id pi@PI3-5GHz-02
 ```
 2. Modify the Client IP in `measurement.sh`
 
-3. Start the script: `sudo ./measurement.sh foldername` - where *foldername* is the name of the folder where the logs get stored.
+3. Create a `hostapd.conf` with the settings to test (`cp hostapd-sample.conf hostapd.conf`).
+
+4. Start the script: `sudo ./measurement.sh foldername` - where *foldername* is the name of the folder where the logs get stored.
 
 ## Requirements
 
