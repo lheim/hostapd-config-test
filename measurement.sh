@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
+
+# IP of the client
+CLIENT=10.10.10.16
+
 trap ctrl_c INT
 
+# enable CTRL-C to exit
 function ctrl_c() {
   echo "Exiting ..."
   pkill -F hostapd.pid
@@ -9,19 +14,18 @@ function ctrl_c() {
   exit -1
 }
 
+# only run as root
 if [ "$EUID" -ne 0 ]
   then echo "Please run as root."
   exit -1
 fi
 
 
-CLIENT=10.10.10.16
-
+# create a directory with the current date when no argument is given
 if [ -z "$1" ]; then DIR=$PWD/logs/$(date +%Y_%m_%d_%H_%M_%S); else DIR=$PWD/logs/$1; fi
-
 mkdir $DIR
 
-# save upcoming hostapd.conf
+# save the hostapd.conf which will be used
 cp hostapd.conf $DIR/
 diff -u hostapd-sample.conf hostapd.conf > $DIR/hostapd-diff.log
 
@@ -94,10 +98,8 @@ rm hostapd.pid
 
 sudo chown -R pi:pi $DIR
 
-
 echo "Plotting iperf3 measurements."
 /bin/su -c "python3 ~/hostapd-config-test/plot-iperf.py $DIR" - pi
-
 
 
 echo "fin 🌈"
