@@ -23,7 +23,7 @@ fi
 
 # create a directory with the current date when no argument is given
 if [ -z "$1" ]; then DIR=$PWD/logs/$(date +%Y_%m_%d_%H_%M_%S); else DIR=$PWD/logs/$1; fi
-mkdir $DIR
+mkdir -p $DIR
 
 # save the hostapd.conf which will be used
 cp hostapd.conf $DIR/
